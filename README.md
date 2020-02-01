@@ -1,6 +1,7 @@
 # Thanos MockServer
 
 [![Build Status](https://travis-ci.org/abigail830/thanos-mockserver.svg?branch=master)](https://travis-ci.org/abigail830/thanos-mockserver)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fabigail830%2Fthanos-mockserver.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fabigail830%2Fthanos-mockserver?ref=badge_shield)
 [![](https://jitpack.io/v/abigail830/thanos-mockserver.svg)](https://jitpack.io/#abigail830/thanos-mockserver)
 
 ## How to use
@@ -39,3 +40,7 @@
 <img src="https://plantuml-server.kkeisuke.app/svg/bLLBZzem4BxpArmEBPNQZLhrrDEosMS5smY2gfwGIGPmwzYfuooBglxtZXCxE663s5nYZsU--UPbNnQQAbrcVF26YOINAPIAawtMUV4r21JTNMoOtfQhiW2LIA51w8j4Pi6C9LIbyf513Zm8ltoCE1LwCPq46IqqA1GjGvdbKXYBt3XuHqg1fXaAYDu2MKlEvOw93U5C0A4Y9QrZfWfSIOAk2PS9vNoF68ucENQ0fvFnp--BU3cvkOsNiuUx-tWmY40LKeoGV55ce3vz8CC51ZF4_pKy1J4OkiFtNRtFU1xQzP7kV8-BR7dph8s-LZJHSr1FB87Qgf8GAqBzWP5HZ58jhsGfKghs8vepL9xAvBVHCx3axu3WrqGrsi5gMLI7g3b3vpzWPPMjO9opoXsc4jJ5B_f4tScwv6GSFP33CVAeuIsLwzKeG-yXJROLRVCtrjyiYg4sfNbkAZJNKa43uFWbniGBtDiUW8PMWlLMnCDyWSwQSRYY1JXAj_xU8CurTWdbw1sHqahaT4YJzhTaZkePFQARDRa-S9vsPJt4NuD-I7dBWLS9ByjMIWvwyLO1JK_WrmejR6lZuKPA9b0KIDtG1yoWvuBq-53OE25dkBHTL6zyt4UJ_6uTiCDdm7jIu84Ex-Cu8dStCMRt3lIOSvVN1v72C-Bqmnp5xyeKuau34R33UyE6rOPn2UjducWKL_kAIR01NTVPIKvowmo29JPEKt9ezdCYEmF2lnDE669CPA4P9skyT3MJmfgtcVhpZpNLBEcbRTKwaJP6Cqpm2QOjCyVn1PlE3T2z41ft4ucchcX7oMtuzTfNhZtxVtK3Uuz4w-urpMAQtsJLcw98AkVSUpPU6DGuZEfx-K-9BKYcnSQDZ3zntQVal6bv1S9PNJwu197YS_eV.svg">
 
 Note: Async communication between threads which using Guava EventBus is not shown in above diagram
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fabigail830%2Fthanos-mockserver.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fabigail830%2Fthanos-mockserver?ref=badge_large)
