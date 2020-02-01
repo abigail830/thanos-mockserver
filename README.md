@@ -1,5 +1,8 @@
 # Thanos MockServer
 
+[![Build Status](https://travis-ci.org/abigail830/thanos-mockserver.svg?branch=master)](https://travis-ci.org/abigail830/thanos-mockserver)
+[![](https://jitpack.io/v/abigail830/thanos-mockserver.svg)](https://jitpack.io/#abigail830/thanos-mockserver)
+
 ## How to use
 
 1. 准备好契约(/resources/contracts)和接口定义(/resource/schemas)
