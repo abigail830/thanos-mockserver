@@ -2,6 +2,9 @@
 
 [![Build Status](https://travis-ci.org/abigail830/thanos-mockserver.svg?branch=master)](https://travis-ci.org/abigail830/thanos-mockserver)
 [![](https://jitpack.io/v/abigail830/thanos-mockserver.svg)](https://jitpack.io/#abigail830/thanos-mockserver)
+[![codecov](https://codecov.io/gh/abigail830/thanos-mockserver/branch/master/graph/badge.svg)](https://codecov.io/gh/abigail830/thanos-mockserver)
+[![Maintainability](https://api.codeclimate.com/v1/badges/bb303a2e9b98ecda567b/maintainability)](https://codeclimate.com/github/abigail830/thanos-mockserver/maintainability)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fabigail830%2Fthanos-mockserver.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fabigail830%2Fthanos-mockserver?ref=badge_shield)
 
 ## How to use
 
