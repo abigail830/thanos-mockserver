@@ -1,0 +1,44 @@
+
+@startuml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Component.puml
+' uncomment the following line and comment the first to use locally
+' !include C4_Component.puml
+
+LAYOUT_LEFT_RIGHT
+
+Person(consumer1, "User", "Dev/Tester")
+Person(consumer2, "Consumer", "Dev/Tester")
+System_Ext(contractService, "Contract Service")
+
+Container_Boundary(api, "MockServer") {
+    Component(web_server, "RestWebServer", "RestApiController.java", "Restful API Controller")
+    ContainerDb(mockCache, "Cache", "Java", "MockMapping Store")
+    Component(cacheService, "CacheService", "Java","Service for MockMapping")
+    ContainerDb(fileBaseCache, "FileBaseCache", "Standalone Mode", "FileBase Contract & Schema")
+    Component(mockServerService, "MockServerService", "Java","Service for Contract & Schema")
+    Component(mockServerController, "MockServerController", "Java", "Control MockServerThread")
+    Component(mockServerThread, "MockServerThread", "Java", "Processor for each MockServer Thread")
+    Component(restClient, "RestClient", "Java", "None Standalone Mode")
+
+Rel(mockServerController, restClient,"HTTP GET","GetAllContractIndex")
+Rel(mockServerController, mockServerThread,"Java","Create new thread")
+Rel(mockServerController, mockServerThread,"EventBus","ShutDownMockEvent")
+Rel(mockServerThread, mockServerController,"EventBus","NewMockMappingEvent")
+Rel(mockServerThread, restClient,"HTTP GET","GetContractsByIndex/getSchemasByIndex")
+Rel(mockServerController, cacheService, "Java","Add Mapping")
+Rel(mockServerController, mockServerService, "Java","Add Mapping")
+Rel(web_server, mockServerService, "Java","Get Util function")
+Rel(cacheService, mockCache, "Static","Add Mapping")
+Rel(mockCache, cacheService, "Static","Read Mapping")
+Rel(web_server, cacheService,"Java","Read Mapping")
+Rel(fileBaseCache, fileBaseCache, "Static","Load Contract")
+Rel(mockServerService, fileBaseCache, "Static","Read Contract")
+}
+
+Rel(consumer1, web_server, "HTTP", "Get MockServer Port")
+Rel(consumer2, mockServerThread, "TCP", "Request Msg")
+
+Rel(restClient, contractService,"HTTP GET","GetAllContractIndex")
+Rel(restClient, contractService,"HTTP GET","GetContractsByIndex/getSchemasByIndex")
+
+@enduml

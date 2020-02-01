@@ -1,0 +1,17 @@
+name: 'test_case_2'
+consumer: 'consumer2'
+provider: 'provider'
+version: 'v1'
+schema:
+  name: 'schema2'
+  version: 'v1'
+  provider: 'provider'
+req:
+  MSG_TYPE: '0'
+  TRAN_ASYNC: '0'
+  MESSAGE_TYPE: 'schema2'
+  TCODE: '123456'
+  ACCT_NO: '12345678901234567'
+  CHOICE: '2'
+res:
+  SUPPLEMENT: 'SUPPLEMENT'

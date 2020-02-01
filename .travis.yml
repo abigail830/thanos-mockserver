@@ -1,0 +1,4 @@
+language: java
+jdk: openjdk8
+install:
+- mvn clean package -DskipTests=true -Dmaven.javadoc.s[kip=true

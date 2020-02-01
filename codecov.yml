@@ -1,0 +1,4 @@
+ignore:
+- "languages"
+- "bughunt"
+- "cocatest"

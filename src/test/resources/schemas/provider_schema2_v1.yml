@@ -1,0 +1,34 @@
+name: 'schema2'
+version: 'v1'
+provider: 'provider'
+request:
+- name: MSG_TYPE
+  type: CHAR
+  length: 1
+  content: 'regex(0|1)'
+- name: TRAN_ASYNC
+  type: CHAR
+  length: 1
+  content: 'regex(0|1)'
+- name: MESSAGE_TYPE
+  type: CHAR
+  length: 7
+  content: 'schema2'
+- name: TCODE
+  type: NUM
+  length: 6
+  content: 'regex(\d{6})'
+- name: ACCT_NO
+  type: NUM
+  length: 17
+  content: 'regex(\d{17})'
+- name: CHOICE
+  type: CHAR
+  length: 1
+  content: '2'
+response:
+- name: SUPPLEMENT
+  type: CHAR
+  length: 10
+  content: 'regex([a-zA-Z0-9]{10})'
+
