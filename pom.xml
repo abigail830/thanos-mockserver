@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.thanos.contract</groupId>
-    <artifactId>MockServer</artifactId>
+    <artifactId>thanos-mockserver</artifactId>
     <version>1.2-SNAPSHOT</version>
 
     <properties>
