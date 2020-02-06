@@ -1,3 +1,5 @@
+package com.thanos.contract.mockserver;
+
 import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
 import com.thanos.contract.mockserver.controller.MockServerController;
 import com.thanos.contract.mockserver.controller.RestApiController;
@@ -8,9 +10,7 @@ import com.thanos.contract.mockserver.domain.mockserver.MockServerService;
 import com.thanos.contract.mockserver.infrastructure.cache.FileBaseCacheRepoImpl;
 import com.thanos.contract.mockserver.infrastructure.client.ContractRestClientRepoImpl;
 import com.thanos.contract.mockserver.infrastructure.parser.PropertiesParser;
-import io.muserver.Method;
-import io.muserver.MuServer;
-import io.muserver.rest.CORSConfigBuilder;
+import io.muserver.*;
 import io.muserver.rest.RestHandlerBuilder;
 import lombok.extern.slf4j.Slf4j;
 
@@ -98,23 +98,31 @@ public class MockServerMain {
 
         webServer = httpServer()
                 .withHttpPort(httpPort)
+                .addHandler(new LoggingHandler())
                 .addHandler(RestHandlerBuilder.restHandler(
                         new RestApiController(mockMappingService, mockServerService))
                         .addCustomWriter(new JacksonJaxbJsonProvider())
                         .addCustomReader(new JacksonJaxbJsonProvider())
                         .withOpenApiJsonUrl("/openapi.json")
-                        .withOpenApiHtmlUrl("/api.html").withCORS(
-                                CORSConfigBuilder.corsConfig()
-                                        .withAllowedOriginRegex("http(s)?://localhost:[0-9]+")
-                        ))
+                        .withOpenApiHtmlUrl("/api.html"))
                 .addHandler(Method.GET, "/health", ((muRequest, muResponse, map) -> {
                     muResponse.write("UP");
                 }))
                 .addHandler(Method.GET, "/", ((muRequest, muResponse, map) -> {
-                    muResponse.redirect("/api.html");
+                    log.info("{}", muRequest.uri());
+                    log.info("{}", muRequest.contextPath());
+                    muResponse.write("uri is " + muRequest.uri() + ", contextPath is " + muRequest.contextPath());
                 })).start();
 
         log.info("Web Server started at " + webServer.uri());
+    }
+
+    // Log the request method, path, and IP address
+    static class LoggingHandler implements MuHandler {
+        public boolean handle(MuRequest request, MuResponse response) {
+            log.info("Recieved " + request + " from " + request.remoteAddress());
+            return false; // so that the next handler is invoked
+        }
     }
 
     public MockMappingService getMockMappingService() {

@@ -1,3 +1,4 @@
+import com.thanos.contract.mockserver.MockServerMain;
 import com.thanos.contract.mockserver.domain.mapping.MockMappingService;
 import org.junit.BeforeClass;
 
