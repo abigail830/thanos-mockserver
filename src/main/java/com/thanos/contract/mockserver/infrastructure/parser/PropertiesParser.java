@@ -30,10 +30,18 @@ public class PropertiesParser {
     }
 
     public static Boolean isPlatformMode() {
-        return new Boolean(prop.getProperty("platformMode"));
+        return Boolean.parseBoolean(getProperty("platformMode").toString());
     }
 
     public static String getContractServiceBaseHttpPath() {
-        return prop.getProperty("contractService.baseHttpPath");
+        return (String) getProperty("contractService.baseHttpPath");
+    }
+
+    private static Object getProperty(String key) {
+        if (System.getProperty(key) != null) {
+            return System.getProperty(key);
+        } else {
+            return prop.getProperty(key);
+        }
     }
 }
