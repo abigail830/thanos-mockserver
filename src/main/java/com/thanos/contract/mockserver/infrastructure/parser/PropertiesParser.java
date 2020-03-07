@@ -30,7 +30,10 @@ public class PropertiesParser {
     }
 
     public static Boolean isPlatformMode() {
-        return Boolean.parseBoolean(getProperty("platformMode").toString());
+        return Boolean.valueOf(
+                Optional.ofNullable(getProperty("platformMode"))
+                        .orElse("FALSE")
+                        .toString());
     }
 
     public static String getContractServiceBaseHttpPath() {
