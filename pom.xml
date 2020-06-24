@@ -20,6 +20,14 @@
             <url>https://jitpack.io</url>
         </repository>
     </repositories>
+         
+    <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/abigail830/thanos-mockserver</url>
+    </repository>
+  </distributionManagement>
 
     <dependencies>
         <dependency>
